@@ -1,0 +1,35 @@
+<h1>Cocktails#index</h1>
+<p>Find me in app/views/cocktails/index.html.erb</p>
+
+
+
+
+<div class="wrapper-grey padded">
+  <div class="container">
+    <h2 class="text-center">The cocktail list</h2>
+        <div class="row">
+          <div>
+            <% @cocktails.each do |cocktail| %>
+              <div class="col-xs-12 col-sm-4">
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://lorempixel.com/300/200?<%= rand(100) %>');">
+                  <div class="card-description">
+                    <h2><%= cocktail.name %></h2>
+                  </div>
+<!--                   <a class="card-link" href="#" ></a> -->
+                  <div>
+                  <%= link_to '<i class="fa fa-eye fa-2x"></i>'.html_safe, cocktail_path(cocktail) %>
+                  <%= link_to '<i class="fa fa-pencil fa-2x" aria-hidden="true"></i>'.html_safe, new_cocktail_path(cocktail)  %>
+                  <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, cocktail_path(cocktail),
+                  method: :delete,
+                  data: {confirm: "Are you sure?"} %>
+                  </div>
+
+               </div>
+            </div>
+
+          <% end %>
+
+      </div>
+    </div>
+
+  </div>

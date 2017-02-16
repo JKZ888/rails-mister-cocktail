@@ -1,0 +1,31 @@
+<h1>Cocktails#show</h1>
+<p>Find me in app/views/cocktails/show.html.erb</p>
+
+
+
+<h1><%= @cocktail.name %></h1>
+
+<div class="row restaurant">
+  <div class="col-xs-12 col-md-6">
+    <img src="http://lorempixel.com/400/300/" alt="">
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <div class="margin visible-xs"></div>
+    <p>
+      <strong>Ingrédients:</strong>
+      <% @cocktail.doses.each do |dose| %>
+     <ul>
+      <li>
+     <%= dose.ingredient.name %>
+     <%= dose.description %>
+    </li>
+    <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, new_cocktail_dose_path(@cocktail) %>
+    </ul>
+
+     <% end %>
+  </div>
+
+</div>
+
