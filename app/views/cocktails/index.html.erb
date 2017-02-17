@@ -2,18 +2,16 @@
 <p>Find me in app/views/cocktails/index.html.erb</p>
 
 
-<%= cl_image_tag("x7zetejb3dtx3rck1wmm",
-      width: 400, height: 300, crop: :fill) %>
 
 <div class="wrapper-grey padded">
   <div class="container">
     <h2 class="text-center">The cocktail list</h2>
+
         <div class="row">
           <div>
             <% @cocktails.each do |cocktail| %>
               <div class="col-xs-12 col-sm-4">
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://lorempixel.com/300/200?<%= rand(100) %>');">
-                  <div class="card-description">
+              <div class="card-description">
                     <h2><%= cocktail.name %></h2>
                   </div>
 <!--                   <a class="card-link" href="#" ></a> -->
@@ -24,12 +22,28 @@
                   method: :delete,
                   data: {confirm: "Are you sure?"} %>
                   </div>
+                    <% if cocktail.photo == nil %>
+
+                       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://lorempixel.com/300/200?<%= rand(100) %>');">
+
+                      <% elsif cocktail.photo_url %>
+
+                        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 400, width: 300, crop: :fill %>');">
+
+                      <% else %>
+
+                       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://lorempixel.com/300/200?<%= rand(100) %>');">
+
+                     <% end  %>
+
+
+
+                  <% end %>
+
+
 
                </div>
             </div>
-
-          <% end %>
-
       </div>
     </div>
 

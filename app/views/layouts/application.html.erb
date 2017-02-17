@@ -11,7 +11,23 @@
   </head>
 
   <body>
+
     <%= render 'layouts/navbar' %>
+
+        <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path "x7zetejb3dtx3rck1wmm", height: 1064, width: 768, crop: :fill %>');">
+        <div class="banner-content">
+          <h1>Cocktail Paradise</h1>
+          <p>Find new ideas for your parties !</p>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

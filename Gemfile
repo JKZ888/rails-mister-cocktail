@@ -7,10 +7,9 @@ end
 
 ruby '2.3.3'
 
-
-gem 'attachinary', github: "assembler/attachinary"
-# gem 'carrierwave', '~> 0.11.2'
-gem 'cloudinary', '~> 1.1.0'
+# gem 'attachinary', github: "assembler/attachinary"
+gem 'carrierwave', '~> 0.11.2'
+gem 'cloudinary', '1.1.0'
 gem 'figaro'
 gem 'rails-controller-testing'
 gem 'faker'
